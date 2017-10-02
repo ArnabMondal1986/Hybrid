@@ -24,9 +24,9 @@ public class VerifyLoginPageWithReportScreenShot {
 	@BeforeMethod
 	public void setUp(){
 		
-	reports = new ExtentReports("C:\\Users\\Rupa\\workspace\\com.learnHybridframe\\Reports\\LoginPageReport.html");
+	reports = new ExtentReports("C:\\Users\\Rupa\\git\\Hybrid\\com.learnHybridframe\\Reports\\LoginPageReport.html",true);
 	
-	logger=reports.startTest("Verify test login");
+	logger=reports.startTest("Verify test to login application");
 	
 	driver=BrowserFactory.getBrowser("firefox");
 		

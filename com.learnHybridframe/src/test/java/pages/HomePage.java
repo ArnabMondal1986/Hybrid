@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage {
@@ -12,10 +13,21 @@ public class HomePage {
 		this.driver=Idriver;
 	}
 	
-	@FindBy(linkText="Sign In") WebElement SignInLink;
-	@FindBy(linkText="My Account") WebElement MyAccLink;
-	@FindBy(linkText="My cart") WebElement MyCartLink;
-	@FindBy(linkText="Checkout") WebElement CheckoutLink;
+	@FindBy(linkText="Sign In") 
+	@CacheLookup
+	WebElement SignInLink;
+	
+	@FindBy(linkText="My Account") 
+	@CacheLookup
+	WebElement MyAccLink;
+	
+	@FindBy(linkText="My cart") 
+	@CacheLookup
+	WebElement MyCartLink;
+	
+	@FindBy(linkText="Checkout")
+	@CacheLookup
+	WebElement CheckoutLink;
 	
 	public void ClickOnSignIn(){
 		SignInLink.click();

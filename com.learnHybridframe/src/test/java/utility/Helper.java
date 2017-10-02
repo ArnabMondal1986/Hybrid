@@ -15,7 +15,10 @@ public class Helper {
 		TakesScreenshot ts=(TakesScreenshot)driver;
 		File src=ts.getScreenshotAs(OutputType.FILE);
 		//String destination="./Screenshot/"+sceenshotname+System.currentTimeMillis()+".png";
-		String destination="C:\\Users\\Rupa\\workspace\\com.learnHybridframe\\Screenshot\\"+sceenshotname+System.currentTimeMillis()+".png";
+		
+		String destination=
+		"C:\\Users\\Rupa\\workspace\\com.learnHybridframe\\Screenshot\\"+sceenshotname+System.currentTimeMillis()+".png";
+		
 		try {
 			FileUtils.copyFile(src, new File(destination));
 		} 

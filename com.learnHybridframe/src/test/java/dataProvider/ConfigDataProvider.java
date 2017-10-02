@@ -35,5 +35,13 @@ public class ConfigDataProvider {
 	public String getIEPath(){
 		return p.getProperty("IEPath");
 	}
+	
+	public String getUsername(){
+		return p.getProperty("username");
+	}
+	
+	public String getPassword(){
+		return p.getProperty("password");
+	}
 
 }

@@ -3,6 +3,7 @@ package testcases;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -15,6 +16,7 @@ import factory.BrowserFactory;
 import factory.DataProviderFactory;
 import pages.HomePage;
 import pages.LoginPage;
+import utility.Helper;
 
 public class VerifyLoginPageWithReport {
 
@@ -26,7 +28,7 @@ ExtentTest logger;
 	@BeforeMethod
 	public void setUp(){
 		
-	reports= new ExtentReports("C:\\Users\\Rupa\\workspace\\com.learnHybridframe\\Reports\\LoginPageReport.html", true);
+	reports= new ExtentReports("C:\\Users\\Rupa\\git\\Hybrid\\com.learnHybridframe\\Reports\\LoginPageReport.html", true);
 	
 	logger=reports.startTest("Verify test login");
 		
@@ -65,8 +67,11 @@ ExtentTest logger;
 	
 	@AfterMethod
 	
-	public void tearDown(){
-		
+	public void tearDown(ITestResult result){
+
+	if(ITestResult.FAILURE==result.getStatus()){
+		Helper.captureScreenshot(driver,result.getName());
+	}
 	BrowserFactory.closeBrowser(driver);
 	reports.endTest(logger);
 	reports.flush();
